@@ -14,6 +14,7 @@ module MyEnumerable
 
     false
   end
+
   def filter(&condition)
     result = []
     each do |element|
