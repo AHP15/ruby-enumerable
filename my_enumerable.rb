@@ -4,7 +4,7 @@ module MyEnumerable
     element
   end
 
-  def all(&condition)
+  def all?(&condition)
     each do |element|
       if !condition.call(element)
         return false
@@ -14,7 +14,7 @@ module MyEnumerable
     true
   end
 
-  def any(&condition)
+  def any?(&condition)
     each do |element|
       if condition.call(element)
         return true
