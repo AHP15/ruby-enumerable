@@ -1,14 +1,7 @@
 module MyEnumerable
-
-  def defaultCondition(element)
-    element
-  end
-
   def all?(&condition)
     each do |element|
-      if !condition.call(element)
-        return false
-      end
+      return false unless condition.call(element)
     end
 
     true
@@ -16,9 +9,7 @@ module MyEnumerable
 
   def any?(&condition)
     each do |element|
-      if condition.call(element)
-        return true
-      end
+      return true if condition.call(element)
     end
 
     false
@@ -27,9 +18,7 @@ module MyEnumerable
   def filter(&condition)
     result = []
     each do |element|
-      if condition.call(element)
-        result.push(element)
-      end
+      result.push(element) if condition.call(element)
     end
 
     result
